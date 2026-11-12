@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maverick ALEG</title>
+<style>
+body {
+  margin: 0;
+  background: #101827;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+h1 { color: #38d9a9; }
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 12px;
+  margin: 15px 0;
+}
+.status { color: #fbbf24; }
+</style>
+</head>
+<body>
+<h1>MAVERICK ALEG</h1>
+<p>AI Investing Dashboard</p>
+
+<div class="card">
+<h2>System Status</h2>
+<p class="status">Dashboard Preview</p>
+<p>Trading: Not Connected</p>
+</div>
+
+<div class="card">
+<h2>Portfolio</h2>
+<p>Account connection pending</p>
+</div>
+
+<div class="card">
+<h2>Investment Strategy</h2>
+<p>Dividend reinvestment</p>
+<p>Market opportunity monitoring</p>
+<p>Risk management</p>
+</div>
+
+<div class="card">
+<h2>Maverick Guardian</h2>
+<p class="status">Not Activated</p>
+<p>Future maintenance and alerts</p>
+</div>
+
+<p>Version 0.1 - Interface Preview</p>
+</body>
+</html>
