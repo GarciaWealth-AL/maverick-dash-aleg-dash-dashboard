@@ -1,0 +1,125 @@
+[
+  {
+    "ticker": "SCHD",
+    "price": 36.040000915527344,
+    "growth": 83,
+    "short_term": 69,
+    "income": 51,
+    "yield_pct": 2.93,
+    "max_drawdown_pct": -6.9,
+    "flags": []
+  },
+  {
+    "ticker": "VOO",
+    "price": 692.1699829101562,
+    "growth": 59,
+    "short_term": 37,
+    "income": 41,
+    "yield_pct": 1.07,
+    "max_drawdown_pct": -8.9,
+    "flags": [
+      "below 50-day average"
+    ]
+  },
+  {
+    "ticker": "ORC",
+    "price": 4.675000190734863,
+    "growth": 19,
+    "short_term": 1,
+    "income": 63,
+    "yield_pct": 27.81,
+    "max_drawdown_pct": -34.4,
+    "flags": [
+      "large historical drawdown",
+      "very high trailing yield; investigate sustainability",
+      "below 50-day average"
+    ]
+  },
+  {
+    "ticker": "ARR",
+    "price": 11.914999961853027,
+    "growth": 26,
+    "short_term": 2,
+    "income": 65,
+    "yield_pct": 24.17,
+    "max_drawdown_pct": -29.1,
+    "flags": [
+      "very high trailing yield; investigate sustainability",
+      "below 50-day average"
+    ]
+  },
+  {
+    "ticker": "PSEC",
+    "price": 1.4299999475479126,
+    "growth": 5,
+    "short_term": 0,
+    "income": 56,
+    "yield_pct": 33.57,
+    "max_drawdown_pct": -47.0,
+    "flags": [
+      "large historical drawdown",
+      "very high trailing yield; investigate sustainability",
+      "below 50-day average"
+    ]
+  },
+  {
+    "ticker": "VIG",
+    "price": 251.39500427246094,
+    "growth": 66,
+    "short_term": 65,
+    "income": 43,
+    "yield_pct": 1.45,
+    "max_drawdown_pct": -7.9,
+    "flags": []
+  },
+  {
+    "ticker": "DGRO",
+    "price": 81.90989685058594,
+    "growth": 69,
+    "short_term": 66,
+    "income": 46,
+    "yield_pct": 1.82,
+    "max_drawdown_pct": -6.5,
+    "flags": []
+  },
+  {
+    "ticker": "VYM",
+    "price": 164.61000061035156,
+    "growth": 65,
+    "short_term": 60,
+    "income": 48,
+    "yield_pct": 2.23,
+    "max_drawdown_pct": -6.7,
+    "flags": []
+  },
+  {
+    "ticker": "O",
+    "price": 58.904998779296875,
+    "growth": 56,
+    "short_term": 54,
+    "income": 58,
+    "yield_pct": 5.52,
+    "max_drawdown_pct": -18.5,
+    "flags": []
+  },
+  {
+    "ticker": "JNJ",
+    "price": 285.9100036621094,
+    "growth": 95,
+    "short_term": 74,
+    "income": 44,
+    "yield_pct": 1.85,
+    "max_drawdown_pct": -11.0,
+    "flags": []
+  },
+  {
+    "ticker": "PG",
+    "price": 169.74000549316406,
+    "growth": 74,
+    "short_term": 89,
+    "income": 45,
+    "yield_pct": 2.55,
+    "max_drawdown_pct": -15.5,
+    "flags": []
+  }
+]
