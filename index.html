@@ -55,15 +55,19 @@ h1 { color: #38d9a9; }
   
 <div class="card">
   <h2>Market Research - Maverick ALEG</h2>
-  <p id="research-status">Loading research report...</p>
-  <pre id="research-data"
-       style="white-space:pre-wrap;overflow-wrap:anywhere;"></pre>
+  <p id="research-status">Loading research...</p>
+  <div id="research-cards" style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));
+    gap:16px;
+    margin-top:20px;">
+  </div>
 </div>
 
 <script>
 async function loadResearch() {
   const status = document.getElementById("research-status");
-  const output = document.getElementById("research-data");
+  const container = document.getElementById("research-cards");
 
   try {
     const response = await fetch("./maverick_report.json", {
@@ -75,16 +79,88 @@ async function loadResearch() {
     }
 
     const report = await response.json();
-    status.textContent = "Latest published research report";
-    output.textContent = JSON.stringify(report, null, 2);
+    const stocks = Array.isArray(report) ? report : report.stocks;
+
+    if (!Array.isArray(stocks)) {
+      throw new Error("Unexpected research report format");
+    }
+
+    status.textContent =
+      "Latest published research - Paper Research Only";
+    container.replaceChildren();
+
+    function addText(parent, tag, value, style = "") {
+      const el = document.createElement(tag);
+      el.textContent = value;
+      if (style) el.style.cssText = style;
+      parent.appendChild(el);
+    }
+
+    function number(value, digits = 0) {
+      const n = Number(value);
+      return value == null || !Number.isFinite(n)
+        ? "N/A" : n.toFixed(digits);
+    }
+
+    stocks.forEach(stock => {
+      const card = document.createElement("div");
+      card.style.cssText = `
+        background:#111827;
+        border:1px solid #475569;
+        border-radius:14px;
+        padding:18px;
+        color:#f8fafc;
+        overflow-wrap:anywhere;
+      `;
+
+      addText(card, "h3", stock.ticker || "Unknown",
+        "font-size:24px;margin:0 0 12px;");
+
+      addText(card, "p",
+        "Reported Price: " +
+        (stock.price == null ? "N/A" : "$" + number(stock.price, 2)));
+
+      addText(card, "p",
+        "Dividend Yield: " + number(stock.yield_pct, 2) + "%");
+
+      addText(card, "p",
+        "Growth Score: " + number(stock.growth));
+
+      addText(card, "p",
+        "Short-Term Score: " + number(stock.short_term));
+
+      addText(card, "p",
+        "Income Score: " + number(stock.income));
+
+      addText(card, "p",
+        "Max Drawdown: " +
+        number(stock.max_drawdown_pct, 1) + "%");
+
+      if (Array.isArray(stock.flags) && stock.flags.length) {
+        addText(card, "p",
+          "Warnings: " + stock.flags.join(", "),
+          "color:#fbbf24;");
+      } else {
+        addText(card, "p", "No research flags reported",
+          "color:#86efac;");
+      }
+
+      container.appendChild(card);
+    });
+
+    if (!stocks.length) {
+      status.textContent = "Research report contains no stocks";
+    }
+
   } catch (error) {
     status.textContent = "Research report unavailable";
-    output.textContent = error.message;
+    container.textContent = error.message;
   }
 }
 
 loadResearch();
 </script>
+
 
 </body>
 </html>
