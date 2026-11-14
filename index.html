@@ -52,5 +52,39 @@ h1 { color: #38d9a9; }
 </div>
 
 <p>Version 0.1 - Interface Preview</p>
+  
+<div class="card">
+  <h2>Market Research - Maverick ALEG</h2>
+  <p id="research-status">Loading research report...</p>
+  <pre id="research-data"
+       style="white-space:pre-wrap;overflow-wrap:anywhere;"></pre>
+</div>
+
+<script>
+async function loadResearch() {
+  const status = document.getElementById("research-status");
+  const output = document.getElementById("research-data");
+
+  try {
+    const response = await fetch("./maverick_report.json", {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
+    }
+
+    const report = await response.json();
+    status.textContent = "Latest published research report";
+    output.textContent = JSON.stringify(report, null, 2);
+  } catch (error) {
+    status.textContent = "Research report unavailable";
+    output.textContent = error.message;
+  }
+}
+
+loadResearch();
+</script>
+
 </body>
 </html>
